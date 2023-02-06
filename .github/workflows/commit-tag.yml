@@ -1,6 +1,7 @@
 name: Commit Tag
+
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       deploy-live:
         required: false
@@ -18,5 +19,5 @@ jobs:
     steps:
 
     - name: Git commit
-      run: echo $GITHUB_SHA - $GITHUB_REF - ${{ inputs.ref }}
+      run: echo "$GITHUB_SHA - $GITHUB_REF - ${{ inputs.ref }}"
       
