@@ -1,5 +1,4 @@
 name: Deploy Live
-concurrency: production
 
 on:
   release:
