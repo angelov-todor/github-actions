@@ -1,8 +1,9 @@
 name: Build Dev
 on:
   workflow_dispatch:
-
+  workflow_call:
 env:
+  ABC: 'efg'
 
 jobs:
   fetch-dependencies:
@@ -22,4 +23,4 @@ jobs:
       uses: actions/checkout@v2
     
     - name: Deploy
-       run: echo "Deploying ... dev"
+      run: echo "Deploying ... dev"
