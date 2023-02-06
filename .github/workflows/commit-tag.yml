@@ -19,5 +19,5 @@ jobs:
     steps:
 
     - name: Git commit
-      run: echo "$GITHUB_SHA - $GITHUB_REF - ${{ inputs.ref }}"
+      run: echo "$GITHUB_SHA - $GITHUB_REF - ${{ inputs.ref }} ${{ github.ref_name }}"
       
