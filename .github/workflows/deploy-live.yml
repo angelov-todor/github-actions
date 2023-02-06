@@ -1,0 +1,23 @@
+name: Deploy Live
+concurrency: production
+
+on:
+  release:
+    types: [published]
+    # $GITHUB_REF - Tag ref of release refs/tags/<tag_name>
+    # ${{ github.ref_name }}
+jobs:
+
+  build:
+    name: Live - Build
+    uses: ./.github/workflows/build-live.yml
+    secrets: inherit
+
+  deploy:
+    name: Update git tag to deploy
+    uses: ./.github/workflows/commit-tag.yml
+    needs:  build
+    secrets: inherit
+    with:
+      deploy-live: true
+      ref: $GITHUB_REF

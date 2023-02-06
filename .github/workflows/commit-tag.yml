@@ -1,0 +1,22 @@
+name: Commit Tag
+on:
+  workflow_dispatch:
+    inputs:
+      deploy-live:
+        required: false
+        type: boolean
+        default: false
+      ref:
+        required: fakse
+        type: string
+        default: "n/a"
+jobs:
+  commit-tag:
+    name: Update git tag
+    runs-on: ubuntu-latest  
+
+    steps:
+
+    - name: Git commit
+      run: echo $GITHUB_SHA - $GITHUB_REF - ${{ inputs.ref }}
+      

@@ -1,0 +1,28 @@
+name: Deploy Dev
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**'
+      - '!.deployment/chart/**'
+  workflow_dispatch:
+
+jobs:
+
+  build-dev:
+    name: Dev - Build
+    uses: ./.github/workflows/build-dev.yml
+    secrets: inherit
+
+  build-live:
+    name: Live - Build
+    uses: ./.github/workflows/build-live.yml
+    secrets: inherit
+
+  deploy:
+    name: Update git tag to deploy dev and uipreview
+    uses: ./.github/workflows/commit-tag.yml
+
+    needs: [build-dev, build-live]
+    secrets: inherit

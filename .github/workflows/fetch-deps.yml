@@ -1,0 +1,19 @@
+name: Fetch dependencies
+on: 
+  workflow_call:
+    inputs:
+      cache-path:
+        required: true
+        type: string
+jobs:
+  fetch-dependencies:
+    name: Fetch Dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Clear Old Dependencies Cache
+      run: |
+        echo 'Fetching dependencies. Cache path ${{ inputs.cache-path }}'        
