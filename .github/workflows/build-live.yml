@@ -7,7 +7,6 @@ on:
   workflow_dispatch:
   workflow_call:
 
-
 jobs:
 
   fetch-dependencies:

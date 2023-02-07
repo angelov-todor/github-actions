@@ -19,4 +19,4 @@ jobs:
     secrets: inherit
     with:
       deploy-live: true
-      ref: $GITHUB_REF
+      ref: ${{ github.ref_name }}

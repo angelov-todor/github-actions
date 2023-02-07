@@ -10,7 +10,6 @@ on:
       ref:
         required: false
         type: string
-        default: "n/a"
 jobs:
   commit-tag:
     name: Update git tag
@@ -20,4 +19,7 @@ jobs:
 
     - name: Git commit
       run: echo "$GITHUB_SHA - $GITHUB_REF - ${{ inputs.ref }} ${{ github.ref_name }}"
+      
+    - name: Git commit part 2
+      run: echo "${{ (inputs.ref == '' && $GITHUB_SHA) || inputs.ref }}"
       
