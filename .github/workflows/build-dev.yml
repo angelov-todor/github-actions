@@ -11,7 +11,7 @@ jobs:
     uses: ./.github/workflows/fetch-deps.yml
     secrets: inherit
     with:
-      cache-path: ${{ env.ABC }}
+      cache-path: "${{ env.ABC }}"
 
   build-and-push:
     name: Dev - Build & Publish
