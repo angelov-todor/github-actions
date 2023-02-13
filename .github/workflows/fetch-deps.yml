@@ -5,6 +5,8 @@ on:
       cache-path:
         required: true
         type: string
+env:
+  SOMETHING: anotherthing
 jobs:
   fetch-dependencies:
     name: Fetch Dependencies
@@ -12,8 +14,9 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Clear Old Dependencies Cache
       run: |
-        echo 'Fetching dependencies. Cache path ${{ inputs.cache-path }}'        
+        echo 'Fetching dependencies. Cache path ${{ inputs.cache-path }}'
+        echo '${{ env.SOMETHING }}' 
