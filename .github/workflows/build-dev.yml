@@ -9,7 +9,7 @@ jobs:
     uses: ./.github/workflows/fetch-deps.yml
     secrets: inherit
     with:
-      cache-path: "${{ env.ABC }}"
+      cache-path: "${{ vars.ABC }}"
 
   build-and-push:
     name: Dev - Build & Publish
@@ -21,4 +21,4 @@ jobs:
       uses: actions/checkout@v3
     
     - name: Deploy
-      run: echo "Deploying ... dev ${{ env.ABC }}"
+      run: echo "Deploying ... dev ${{ vars.ABC }}"
